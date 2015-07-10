@@ -3,14 +3,16 @@ import sublime, sublime_plugin
 import os
 import sys
 
-current_working_directory = os.getcwd() 																			#current working directory 
-sys.path.append("/home/shubham/.config/sublime-text-3/Packages/User" + "/lib/python3.4/site-packages")		#Tells sublime python interpreter where modules are store
+current_working_directory = os.getcwd() 																#current working directory 
+sys.path.append("/home/vac/.config/sublime-text-3/Packages/User" + "/lib/python3.4/site-packages")		#Tells sublime python interpreter where modules are store
 
 from git import *	
 
-settings = sublime.load_settings("ProperCheckRepo.sublime-settings")
+#settings = sublime.load_settings("ProperCheckRepo.sublime-settings")
 
 class myOpener(sublime_plugin.EventListener):		
+
+	
 
 	def on_post_save(self,view):
 
@@ -48,4 +50,5 @@ class myOpener(sublime_plugin.EventListener):
 		user_push_confirmation = sublime.ok_cancel_dialog("Do you want to Push the changes?", "Push") #confirm if the user wants to push
 
 		if user_push_confirmation == 1 :
-			repo_push()																			#function call to repo_push
+	
+		repo_push()																			#function call to repo_push
